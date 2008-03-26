@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head><title>[SM-Discuss] Call for Stage Root Sorcery Alpha Testers</title>
+
+ 
+   
+   <link rel="Index" href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/index.html">
+   <link rel="made" href="mailto:sm-discuss%40lists.ibiblio.org?Subject=%5BSM-Discuss%5D%20Call%20for%20Stage%20Root%20Sorcery%20Alpha%20Testers&amp;In-Reply-To=">
+   <meta name="robots" content="index,nofollow">
+   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <link rel="Previous" href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/014453.html">
+   <link rel="Next" href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/014459.html"></head><body bgcolor="#ffffff">
+   <h1>[SM-Discuss] Call for Stage Root Sorcery Alpha Testers</h1>
+    <b>David Brown</b> 
+    <a href="mailto:sm-discuss%40lists.ibiblio.org?Subject=%5BSM-Discuss%5D%20Call%20for%20Stage%20Root%20Sorcery%20Alpha%20Testers&amp;In-Reply-To=" title="[SM-Discuss] Call for Stage Root Sorcery Alpha Testers">dmlb2000 at gmail.com
+       </a><br>
+    <i>Mon May 15 23:06:30 EDT 2006</i>
+    <p></p><ul>
+        <li>Previous message: <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/014453.html">[SM-Discuss] Patches in grimoires
+</a></li>
+        <li>Next message: <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/014459.html">[SM-Discuss] Call for Stage Root Sorcery Alpha Testers
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/date.html#14456">[ date ]</a>
+              <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/thread.html#14456">[ thread ]</a>
+              <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/subject.html#14456">[ subject ]</a>
+              <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/author.html#14456">[ author ]</a>
+         </li>
+       </ul>
+    <hr>  
+<!--beginarticle-->
+<pre>=== Background ===
+Okay for a few months now I've been working on stage root sorcery.
+The idea behind stage root sorcery is to install a package to a stage
+root transparently to the package.  Meaning the package doesn't know
+it's installing to a stage root location.  Then sorcery can handle
+moving the files back into the system or install root.
+
+=== Why It's Needed? ===
+This feature will fix several bugs currently open in bugzilla slated
+for 1.14. Including fixing shell redirection to create files not being
+tracked and proper config file handling.  Also this will allow spells
+to not need to implement and use the INSTALL_ROOT variable.  However,
+for the time being they will because we plan on supporting turning off
+stage root.
+
+=== General Info on Use ===
+This feature will only be supported in build api2 spells and there
+will be a way for spell gurus to access the staged files before they
+are put into the system.  In order to cast using stage root (once I
+tell you how to set it up) you have to compile and install, ressurrect
+doesn't use it (even though it could I suppose but that may come
+later).
+
+=== Spell Access to Stage Root ===
+With stage root POST_INSTALL will have a new meaning, POST_INSTALL
+will have the sorcery environment and the current working directory
+will be at the root of the stage root.  This will allow you to use
+POST_INSTALL to check for file permissions move or remove files that
+you don't want in the install log for the package.  This means spells
+could get really nutty and look like debian packages where there's the
+main package then a -dev package that contains all the libs and
+headers, and everything will be compile from source.  You can see
+further examples in the gcc set of packages in stage_root grimoire.
+
+=== Additions to Manage Stage Root ===
+There's two things added for users of stage root, the script confmeld
+and the variable STAGED_INSTALL.  Configuration files are
+automatically put in a special stage area so they can be merged into
+the system by the user.  The script confmeld is there so this can be
+accomplished without doing things manually (even though you can
+manually everythings in /var/state/sorcery/staged_configs).  The
+script is assumed to be called as root user, the code for asking for a
+password then recalling itself via su -c isn't in place yet.  The
+basic sequence for confmeld is to run find on the directory looking
+for regular files then merging them back into the system with
+install_config_file.  The variable STAGED_INSTALL is to turn off the
+stage root feature when using cast.  To turn things off simply
+`STAGED_INSTALL=off cast -c &lt;spell&gt;`. Setting STAGED_INSTALL to "off"
+and only "off" will turn off the stage root feature, anything else
+will keep stage root on.
+
+=== What I'm Expecting From Alpha Testers ===
+Some of the things I'm looking for from alpha testers are as follows:
+1) does a cast look okay, try different color configurations?
+2) do things like cast with screen still work well? other features
+from the feature menu?
+3) does confmeld work? does it need additions? look of the output okay?
+4) do install logs, md5sum logs, and archives still look okay?
+
+=== How to Set Stage Root Up ===
+Follow these instructions in order and you should get stage root
+sorcery working.
+PRECONDITIONS: You should have test grimoire and devel sorcery
+currently running on the system.  It's recommended to use this in a
+chroot environment first (simply because I'm not too sure about issues
+converting back to normal devel sorcery and test grimoire).
+1) Get Stage Root Sorcery:
+bzr branch <a href="http://scm.sourcemage.org/smgl/sorcery/stage-root">http://scm.sourcemage.org/smgl/sorcery/stage-root</a>
+or if Andrew would publish a source tarball somewhere then get that. ;)
+2) Install Stage Root Sorcery:
+nothing about the install is different from any other version of
+sorcery, so if you don't know how to do this you probably shouldn't be
+an alpha tester...
+3) Get Stage Root Grimoire:
+it's in perforce //sgl/grimoires/stage_root
+4) make sure stage_root grimoire is above your test grimoire:
+so something like this in your /etc/sorcery/local/grimoire file.
+GRIMOIRE_DIR[0]=/var/lib/sorcery/codex/stage_root
+GRIMOIRE_DIR[1]=/var/lib/sorcery/codex/test
+GRIMOIRE_DIR[2]=/var/lib/sorcery/codex/z-rejected
+5) Install the New Installwatch
+cast -c installwatch
+POSTCONDITIONS: gcc and g++ versions will have changed so if you like
+you can install the parallel installs of gcc and g++.  However, if you
+don't want to do this hold them.  I haven't tested the update from
+current install of gcc to parallel so it probably won't be very
+smooth.
+
+Thanks a bunch for any comments.
+
+- David Brown
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <hr>
+    <p></p><ul>
+        <!--threads-->
+	<li>Previous message: <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/014453.html">[SM-Discuss] Patches in grimoires
+</a></li>
+	<li>Next message: <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/014459.html">[SM-Discuss] Call for Stage Root Sorcery Alpha Testers
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/date.html#14456">[ date ]</a>
+              <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/thread.html#14456">[ thread ]</a>
+              <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/subject.html#14456">[ subject ]</a>
+              <a href="http://lists.ibiblio.org/pipermail/sm-discuss/2006-May/author.html#14456">[ author ]</a>
+         </li>
+       </ul>
+
+<hr>
+<a href="http://lists.ibiblio.org/mailman/listinfo/sm-discuss">More information about the SM-Discuss
+mailing list</a><br>
+
+</body></html>

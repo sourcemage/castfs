@@ -1,0 +1,71 @@
+X-Account-Key: account3
+X-UIDL: 20080320212143s1400a8k7ue001cau
+X-Mozilla-Status: 0011
+X-Mozilla-Status2: 00000000
+X-Mozilla-Keys:                                                                                 
+Received: from imta13.westchester.pa.mail.comcast.net ([76.96.62.38])
+          by sccrmxc14.comcast.net (sccrmxc14) with ESMTP
+          id <20080320212143s14001i4ile>; Thu, 20 Mar 2008 21:21:43 +0000
+X-Originating-IP: [76.96.62.38]
+Received: from muninn.sourcemage.org ([209.245.211.125])
+	by IMTA13.westchester.pa.mail.comcast.net with comcast
+	id 3ZMa1Z00r2itLqR0D00000; Thu, 20 Mar 2008 21:21:43 +0000
+X-Authority-Analysis: v=1.0 c=1 a=p49UnpaW7zK-bSVt0aoA:9
+ a=kO0ISCSe_7IrU9Qf0S3KzgsXsfkA:4 a=si9q_4b84H0A:10 a=JqzK7hVu6n4A:10
+Received: (qmail 19264 invoked by uid 1008); 20 Mar 2008 21:21:34 -0000
+Delivered-To: sourcemage.org-linuxfan@sourcemage.org
+Received: (qmail 19261 invoked from network); 20 Mar 2008 21:21:34 -0000
+Received: from py-out-1112.google.com (64.233.166.183)
+  by muninn.sourcemage.org with SMTP; 20 Mar 2008 21:21:34 -0000
+Received: by py-out-1112.google.com with SMTP id n24so1231957pyh.26
+        for <linuxfan@sourcemage.org>; Thu, 20 Mar 2008 14:21:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=beta;
+        h=domainkey-signature:received:received:message-id:date:from:to:subject:in-reply-to:mime-version:content-type:content-transfer-encoding:content-disposition:references;
+        bh=GrFajDNBUA0Xi5bUu86eRQkVPO5arx8qZO0F7g/qNDs=;
+        b=gmugmNCWXoJe8Ow8FTQ7DTa7CEFxz4Sx9z1nkJ4T/0uPXTH58Fl7oN/iGQ248rGrSdbVle68Q+x/9WuBfz/Mt4pK8yn6H4sLU6bOJqEs1wboYEEzuYjR2GOjaH0SfUordLUCiP6ib0k1dGDdSvXpWBp8CtJU7SAbFueEUKVhj4o=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=beta;
+        h=message-id:date:from:to:subject:in-reply-to:mime-version:content-type:content-transfer-encoding:content-disposition:references;
+        b=BDjgj+e2lxegZK1X8uRuLSOQAqAm+GpSviEJczgx5Q51kyo3+to7QPCeD9PkomAd8pyO6AxlKWOvQbIpNfvJG75ikGlK2RQpLAylrXbkbC4XjvoHICmyNtZl2HizmWq4GabaSPz9Ru3tQrxRPJDH5r27xu02RUssgeWxOhDPyII=
+Received: by 10.64.91.15 with SMTP id o15mr4757825qbb.28.1206048090874;
+        Thu, 20 Mar 2008 14:21:30 -0700 (PDT)
+Received: by 10.65.150.9 with HTTP; Thu, 20 Mar 2008 14:21:30 -0700 (PDT)
+Message-ID: <9c21eeae0803201421o38a222afqab382b67af861d9@mail.gmail.com>
+Date: Thu, 20 Mar 2008 14:21:30 -0700
+From: "David Brown" <dmlb2000@gmail.com>
+To: "Dale E. Edmons" <linuxfan@sourcemage.org>
+Subject: Re: castfs
+In-Reply-To: <47E22C1B.3020900@comcast.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+References: <47E22C1B.3020900@comcast.net>
+
+Its all yours, go for it.
+
+Its a fairly simple design but croaks on the init.d spell iirc seems
+that internally to castfs it forgets about files it encounters
+somehow, not sure why.
+
+Thanks,
+- David Brown
+
+On Thu, Mar 20, 2008 at 2:19 AM, Dale E. Edmons <demaillists@comcast.net> wrote:
+> David,
+>
+>  Hi.  I'm a new SMGL developer.  I barely got smgl running
+>  when you moved on to other things.
+>
+>  I'm volunteering to maintain castfs.  Do you have any objections
+>  to this?  I'm making an effort to get castfs added to SMGL's scm
+>  as misc/castfs.
+>
+>  Thank you much.  castfs seems to be a really neat idea.  I hope
+>  I'll be able to further it's design.
+>
+>  Dale E. Edmons
+>  (aka linuxfan)
+>
+

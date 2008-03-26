@@ -1,0 +1,26 @@
+1. Add comments to code.
+2. Add documentation.
+3. Fix smgl bugs.
+4. Recruit somebody capable of writing test code.
+
+Design changes:
+	1. Command line options and environment variables should have
+		reasonable defaults.
+
+		syntax:
+			castfs <root> <mount point> [<stage directory>]
+			castfs <root> <mount point> [<stage directory>]
+				<root>	non-optional.
+	2. Add --version option
+
+David's old stuff:
+
+ * test test test
+ * benchmarking code
+ * fix recusive stuff (check the mount directory and return error on accessing)
+  might be better to implement a denied dirs list similar to ignored dirs accept  any access to these directories would result in error
+ * it'd be nice to handle what gets removed while the process is going this 
+  currently is held in memory and it'd be nice to have a list of files that got
+  removed during the castfs process
+ * debug log should have more stuff in it, it'd be nice to have some of the 
+  output that strace has I'll have to investigate it.

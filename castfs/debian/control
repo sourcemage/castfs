@@ -1,0 +1,12 @@
+Source: castfs
+Section: unknown
+Priority: extra
+Maintainer: David Brown <dmlb2000@gmail.com>
+Standards-Version: 3.6.2
+
+Package: castfs
+Architecture: i386 x86_64
+Depends: libfuse2
+Description: Fuse file system used for staging source installs
+ Fuse file system used for staging source installs to separate locations
+ transparently to the install of the source.

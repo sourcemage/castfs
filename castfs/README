@@ -1,0 +1,69 @@
+--- Copy And Stage Things File System ---
+--- README ---
+
+castfs is a fuse filesystem written in C and is used for capturing filesystem 
+calls for your root filesystem and staging any modifications or additions to 
+the root filesystem.
+
+The main purpose for this filesystem is to be able to invoke the filesystem in
+the Source Mage package manager (sorcery) to install packages without blowing
+over files in your main system. However, there maybe other uses in the future.
+
+-- BUILD INSTRUCTIONS --
+
+Simple build instructions:
+
+    $ make
+
+There are various flags to pass to the Makefile if you want to add CFLAGS or 
+LDFLAGS use the make variables EXTRA_CFLAGS and EXTRA_LDFLAGS
+
+-- INSTALL INSTRUCTIONS --
+
+Simple install instructions:
+
+    # make install
+
+There are various flags to pass to the Makefile to install to different prefix
+locations use the PREFIX make variable to do this.
+
+-- USAGE INSTRUCTIONS --
+
+There are some simple run and stop scripts in the source directory to show usage
+of the filesystem after building castfs do:
+
+    # ./run-castfs.sh
+    # chroot test_dirs/mount
+    # < do stuff >
+    # exit
+    # ./stop-castfs.sh
+
+After this you should find all your modified files in test_dirs/stage directory.
+
+-- More Advanced Usage --
+
+The castfs needs two environmental variables:
+
+    CASTFS_LOGFILE
+    CASTFS_DBGLVL
+
+The log file variable is the location where the log file that castfs 
+will log filesystem function calls calls into the utilities file etc.
+
+The debug level variable is actually a mask to dump particular parts of
+castfs to the log file, either just the filesystem calls or just the
+hash calls or just the util calls and so on.
+
+There's two ways you can use castfs either call the binary directly or
+mount it via the mount command:
+
+    # castfs /mnt/cast-fs -o stage=/mnt/cast-fs-stage
+    or
+    # mount -t fuse -o stage=/mnt/cast-fs-stage castfs /mnt/cast-fs
+
+-- Bugs Problems --
+
+You can contact the maintainers:
+
+David Brown <dmlb2000@gmail.com>
+
