@@ -1,6 +1,7 @@
 1. Add comments to code.	(in-work)
 2. Add documentation.		(in-work; help welcome)
-3. Fix smgl bugs.		(help welcom)
+3. Fix smgl bugs.		(help welcome)
+	a. Fixed `castfs ~/mnt -o ~/mnt/stage` bug.	-D.E.
 4. Recruit somebody capable of writing test code.
 5. configure.in: ryuji had problems with FUSE_PREFIX being bad for static
 	version.  I personally feel the static option should be removed, but
@@ -8,13 +9,12 @@
 
 Design changes:
 	1. Command line options and environment variables should have
-		reasonable defaults.
+		reasonable defaults.	(Mostly done.)
 
-		syntax:
-			castfs <root> <mount point> [<stage directory>]
-			castfs <root> <mount point> [<stage directory>]
-				<root>	non-optional.
-	2. Add --version option
+		proposed syntax:
+			castfs <mount point> <stage directory> [-o <options>]
+			# needs discussed
+	2. Add --version option	(done.)
 
 David's old stuff:
 
