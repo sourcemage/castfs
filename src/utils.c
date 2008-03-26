@@ -194,13 +194,13 @@ int stage_not_in_mnt(const char *mnt, const char *stage)
 	int n;
 	char tmp[128];
 
-	n = strlen(mnt);
+	n = strlen(mnt); tmp[0]=0;
 
 	if(strncmp(mnt, stage, n) == 0) {
 fprintf(stderr, "castfs: Error, stage is a subdir to mnt\n");
 		return 0;
 	} else {
-fprintf(stderr, "castfs: Cool staged dir seamesok\n");
+fprintf(stderr, "castfs: Cool staged dir seems okay\n");
 		return 1;
 	}
 }

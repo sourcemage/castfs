@@ -728,7 +728,7 @@ int main(int argc, char *argv[], char *env[])
 	umask(0);
 
 	if(strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0) {
-		fprintf(stdout, "castfs: version 0.6.2\n"); /* FIXME: s/b dynamic */
+		fprintf(stdout, "castfs: version 0.6-cvs\n"); /* FIXME: s/b dynamic */
 		exit(0);
 	} else if(strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
 		usage();
@@ -805,7 +805,10 @@ fprintf(stderr, "castfs: argc wrong\n");
 	for (i = 0; i < new_argc; i++)
 		cast_log(CAST_DBG_MAIN, "argv[%d] = \"%s\"\n", i, new_argv[i]);
 
-	if(!stage_not_in_mnt()) {
+fprintf(stderr, "castfs: checking sanity of <mnt-dir> and <stage-dir>\n");
+	if(stage_not_in_mnt(mount_path, stage_path)) {
+		fprintf(stderr, "castfs: stagedir is okay!\n");
+	} else {
 		fprintf(stderr, "castfs: <stage-dir> cannot be a subdir of <mnt>\n");
 		exit(1);
 	}
