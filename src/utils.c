@@ -186,6 +186,8 @@ int shouldIgnore(const char *path)
  * stage_not_in_mnt():
  *	Simple test to ensure stage is not a subdir of mnt.
  *	I don't try to equate ~ to /home/user or any such reductions.
+ *
+ *	Status: Broken!  Be ye ware!
  */
 int stage_not_in_mnt(const char *mnt, const char *stage)
 {
