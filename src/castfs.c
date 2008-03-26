@@ -728,7 +728,7 @@ int main(int argc, char *argv[], char *env[])
 	umask(0);
 
 	if(strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0) {
-		fprintf(stdout, "castfs: version 0.6-cvs\n"); /* FIXME: s/b dynamic */
+		fprintf(stdout, "castfs: version 0.6-git\n"); /* FIXME: s/b dynamic */
 		exit(0);
 	} else if(strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
 		usage();
