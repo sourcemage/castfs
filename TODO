@@ -2,7 +2,7 @@
 2. Add documentation.		(in-work; help welcome)
 3. Fix smgl bugs.		(help welcom)
 4. Recruit somebody capable of writing test code.
-5. configure.in: Elisamuel had problems with FUSE_PREFIX being bad for static
+5. configure.in: ryuji had problems with FUSE_PREFIX being bad for static
 	version.  I personally feel the static option should be removed, but
 	would like input on this.	-D.E.Edmons
 
