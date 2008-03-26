@@ -1,3 +1,7 @@
+2008-03-25 Dale E. Edmons <linuxfan@sourcemage.org>
+	* Copied local repo to new repo on repos.or.cz
+	* ryuji fixed it afterwards.
+
 2008-03-20 Dale E. Edmons <linuxfan@sourcemage.org>
 	* castfs.c: cast_destroy(): commented out free(mount_path)
 	* doc/: Hopefully begin documentation

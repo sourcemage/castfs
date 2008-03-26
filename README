@@ -1,3 +1,12 @@
+
+Caution:  This is a Work-In-Progress!  There is a very high likelyhood of
+	castfs deleting your entire filesystem, especially if you dare to
+	run it as root.  Please test it and convince yourself it is correct
+	before proceeding.  Feel free to offer any constructive comments.
+
+	Dale E. Edmons (aka linuxfan)
+
+
 --- Copy And Stage Things File System ---
 --- README ---
 
