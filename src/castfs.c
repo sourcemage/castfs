@@ -36,7 +36,7 @@ static int cast_fgetattr(const char *path, struct stat *stbuf,
 	char *cpath = strdup(path);
 	cast_paths_ptr paths = castHashGetValueOf(cpath);
 
-	cast_log(CAST_DBG_SYS, "getattr %s\n", cpath);
+	cast_log(CAST_DBG_SYS, "\tfgetattr %s\n", cpath);
 	cast_paths_log(paths);
 	if (paths && paths->is_staged)
 		res = lstat(paths->stage_path, stbuf);
