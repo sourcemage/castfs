@@ -1,7 +1,7 @@
 Source: castfs
 Section: unknown
 Priority: extra
-Maintainer: David Brown <dmlb2000@gmail.com>
+Maintainer: Elisamuel Resto <ryuji@sourcemage.org>
 Standards-Version: 3.6.2
 
 Package: castfs
