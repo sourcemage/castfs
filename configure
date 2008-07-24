@@ -4206,9 +4206,7 @@ echo "$as_me: error: fuse 2.4 or newer is required to build castfs" >&2;}
 fi
 
 
-FUSE_PREFIX=`pkg-config --variable=prefix fuse `
-FUSE_PREFIX=PREFIX
-
+FUSE_PREFIX=`pkg-config --variable=prefix fuse`
 
 # Check whether --enable-static-fuse was given.
 if test "${enable_static_fuse+set}" = set; then
