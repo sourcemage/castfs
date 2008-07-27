@@ -1,3 +1,10 @@
+2008-07-24 Elisamuel Resto <ryuji@sourcemage.org>
+	* configure: FUSE_PREFIX was being rewritten
+	* AUTHORS: Dale forgot to add my name
+	* debian/control, debian/copyright: Dale is the upstream maintainer,
+	  I will be the debian files maintainer
+	* debian/changelog: version bump to 0.6.0-1
+
 2008-03-25 Dale E. Edmons <linuxfan@sourcemage.org>
 	* Copied local repo to new repo on repos.or.cz
 	* ryuji fixed it afterwards.
