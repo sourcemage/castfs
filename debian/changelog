@@ -6,7 +6,7 @@ castfs (0.6.1-1) unstable; urgency=low
 
 castfs (0.6.0-1) unstable; urgency=low
 
-  * Version bump to 0.6.1
+  * Version bump to 0.6.0
 
  -- Elisamuel Resto <ryuji@sourcemage.org>  Thu, 24 Jul 2008 09:38:13 -0400
 

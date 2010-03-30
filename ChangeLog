@@ -10,6 +10,7 @@
 	  exec_prefix is defined, rather than the architecture-independent prefix.
 	* configure: Regenerate with latest configure.in and autoconf 2.65
 	* debian/changelog: Bump to 0.6.1
+	  Elisamuel's change to 0.6.0 bumped to 0.6.1, corrected to 0.6.0
 
 2008-07-24 Elisamuel Resto <ryuji@sourcemage.org>
 	* configure: FUSE_PREFIX was being rewritten
