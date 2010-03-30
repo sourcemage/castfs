@@ -1,3 +1,14 @@
+2010-03-29 Eric Sandall <sandalle@sourcemage.org>
+	* configure.in: Look for architecture-dependent files under exec_prefix
+	  A recent change to fuse (d70e16cda5b272573220c2df4e52655447eee04e in
+	  the grimoire) caused fuse to install architecture-dependent files to /
+	  instead of /usr via the --exec-prefix (a.k.a. EPREFIX or exec_prefix)
+	  configure flag.
+	  Our castfs configure.in is checking for prefix (architecture-independent)
+	  instead of exec_prefix (architecture_dependent). This change causes
+	  castfs to look for libfuse.a (an architecture-dependent file) wherever
+	  exec_prefix is defined, rather than the architecture-independent prefix.
+
 2008-07-24 Elisamuel Resto <ryuji@sourcemage.org>
 	* configure: FUSE_PREFIX was being rewritten
 	* AUTHORS: Dale forgot to add my name

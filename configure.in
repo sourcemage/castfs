@@ -21,7 +21,7 @@ AC_CHECK_HEADERS(fuse.h,, AC_MSG_ERROR([fuse 2.4 or newer is required to build c
 
 AC_CHECK_LIB(fuse, fuse_main,, AC_MSG_ERROR([fuse 2.4 or newer is required to build castfs]))
 
-FUSE_PREFIX=`pkg-config --variable=prefix fuse `
+FUSE_PREFIX=`pkg-config --variable=exec_prefix fuse `
 AC_SUBST(FUSE_PREFIX,PREFIX,DATAROOTDIR)
 
 AC_ARG_ENABLE(static-fuse,
