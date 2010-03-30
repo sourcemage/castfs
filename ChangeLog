@@ -8,6 +8,7 @@
 	  instead of exec_prefix (architecture_dependent). This change causes
 	  castfs to look for libfuse.a (an architecture-dependent file) wherever
 	  exec_prefix is defined, rather than the architecture-independent prefix.
+	* configure: Regenerate with latest configure.in and autoconf 2.65
 
 2008-07-24 Elisamuel Resto <ryuji@sourcemage.org>
 	* configure: FUSE_PREFIX was being rewritten
