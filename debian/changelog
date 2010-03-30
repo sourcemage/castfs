@@ -1,3 +1,9 @@
+castfs (0.6.1-1) unstable; urgency=low
+
+  * Version bump to 0.6.1
+
+ -- Eric Sandall <sandalle@sourcemage.org> Mon, 29 Mar 2010 22:00 -0800
+
 castfs (0.6.0-1) unstable; urgency=low
 
   * Version bump to 0.6.1
