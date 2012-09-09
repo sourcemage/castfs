@@ -727,6 +727,12 @@ int main(int argc, char *argv[], char *env[])
 	/* get environmental vars and open fd's for log file */
 	umask(0);
 
+	if (argc == 1) {
+		fprintf(stderr, "castfs: no arguments given\n");
+		usage();
+		exit(-1);
+	}
+
 	if(strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0) {
 		fprintf(stdout, "castfs: version 0.6-git\n"); /* FIXME: s/b dynamic */
 		exit(0);
@@ -762,7 +768,7 @@ int main(int argc, char *argv[], char *env[])
 
 	/* Currently, need: `castfs mnt-dir -o stage=stage-dir` */
 	if (argc < 4) {
-fprintf(stderr, "castfs: argc wrong\n");
+		fprintf(stderr, "castfs: argc wrong\n");
 		usage();
 		exit(-1);
 	}

@@ -1,3 +1,6 @@
+2012-09-10 Vlad Glagolev <stealth@sourcemage.org>
+	* src/castfs.c: fixed segfault, when running without any arguments
+
 2010-03-29 Eric Sandall <sandalle@sourcemage.org>
 	* configure.in: Look for architecture-dependent files under exec_prefix
 	  A recent change to fuse (d70e16cda5b272573220c2df4e52655447eee04e in
