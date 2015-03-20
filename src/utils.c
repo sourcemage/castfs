@@ -164,6 +164,8 @@ int parse_mount_options(char *str)
 				    sizeof(char *) * ignored_dirs_len);
 			ignored_dirs[ignored_dirs_len - 1] = strdup(token + 7);
 			clean_cast_path(ignored_dirs[ignored_dirs_len - 1]);
+		} else if (!strncmp("debug", token, 5)) {
+			found++;
 		}
 		token = strtok(NULL, ",");
 	}
