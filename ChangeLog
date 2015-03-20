@@ -1,3 +1,7 @@
+2015-03-21 Vlad Glagolev <stealth@sourcemage.org>
+	* src/castfs.c: handle mkfifo/mknod return value
+	* src/utils.c: removed unused variable
+
 2012-09-10 Vlad Glagolev <stealth@sourcemage.org>
 	* src/castfs.c: fixed segfault, when running without any arguments
 

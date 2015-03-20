@@ -192,6 +192,10 @@ static int cast_mknod(const char *path, mode_t mode, dev_t rdev)
 		res = mkfifo(paths->stage_path, mode);
 	else
 		res = mknod(paths->stage_path, mode, rdev);
+
+	if (res == -1)
+		return -errno;
+
 	paths->is_staged = 1;
 	paths->is_deleted = 0;
 	return 0;
@@ -759,7 +763,7 @@ int main(int argc, char *argv[], char *env[])
 	} else {
 		dbgdef = 0;
 		/* comment out the following not used in default */
-		dbgdef |= CAST_DBG_MAIN; 
+		dbgdef |= CAST_DBG_MAIN;
 		/* dbgdef |= CAST_DBG_SYS; */
 		/* dbgdef |= CAST_DBG_UTIL; */
 		/* dbgdef |= CAST_DBG_PATHS; */

@@ -3,7 +3,7 @@
 
 void usage()
 {
-	fprintf(stderr, 
+	fprintf(stderr,
     		"\ncastfs <mount-point> -o stage=<stage-dir>\n"
 		"\n\texport CASTFS_LOGFILE=/tmp/castfs.log\t# Default\n"
 		"\texport CASTFS_DBGLVL=15\t\t\t# Default\n"
@@ -192,9 +192,8 @@ int shouldIgnore(const char *path)
 int stage_not_in_mnt(const char *mnt, const char *stage)
 {
 	int n;
-	char tmp[128];
 
-	n = strlen(mnt); tmp[0]=0;
+	n = strlen(mnt);
 
 	if(strncmp(mnt, stage, n) == 0) {
 		fprintf(stderr, "castfs: Error, stage is a subdir to mnt\n");
