@@ -50,6 +50,7 @@ int cast_copy_file(const char *from, const char *to);
 int cast_paths_log(cast_paths_ptr paths);
 int cast_mkdir_rec_staged(cast_paths_ptr dir);
 int parse_mount_options(char *str);
+int stage_not_in_mnt(const char *mnt, const char *stage);
 void strip_out_arguments(char *arg);
 int shouldIgnore(const char *path);
 
