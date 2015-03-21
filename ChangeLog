@@ -1,7 +1,9 @@
 2015-03-21 Vlad Glagolev <stealth@sourcemage.org>
 	* src/castfs.c: handle mkfifo/mknod return value; removed fgetattr call
 	  which can lead to race condition in some rare cases
-	  (see http://marc.info/?l=linux-fsdevel&m=124442640826290&w=2)
+	  (see http://marc.info/?l=linux-fsdevel&m=124442640826290&w=2); do not
+	  modify command-line arguments directly: this breaks them in a process
+	  tree
 	* src/utils.c: removed unused variable; added ability to use '-o debug'
 	  option
 	* include/castfs.h: declare stage_not_in_mnt()

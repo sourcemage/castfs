@@ -698,7 +698,7 @@ static struct fuse_operations cast_oper = {
 int main(int argc, char *argv[], char *env[])
 {
 	int i, dbgdef;
-	char *new_argv[argc], *logptr, *dbgptr, deflog[]="/tmp/castfs.log";
+	char *new_argv[argc], *tmp_argv, *logptr, *dbgptr, deflog[]="/tmp/castfs.log";
 	int new_argc = 0;
 
 	/* get environmental vars and open fd's for log file */
@@ -762,13 +762,15 @@ int main(int argc, char *argv[], char *env[])
 	for (i = 0; i < argc; i++) {
 		if (strcmp(argv[i], "-o")==0) {
 			if (parse_mount_options(argv[i + 1])) {
-				strip_out_arguments(argv[i + 1]);
-				if (strlen(argv[i + 1]) == 0) {
+				tmp_argv = strdup(argv[i + 1]);
+				strip_out_arguments(tmp_argv);
+				if (strlen(tmp_argv) == 0) {
 					i++;
 				} else {
 					new_argv[new_argc] = argv[i];
 					new_argc++;
 				}
+				free(tmp_argv);
 			}
 		} else {
 			new_argv[new_argc] = argv[i];
