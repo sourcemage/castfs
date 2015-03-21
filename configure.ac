@@ -1,4 +1,4 @@
-AC_INIT(castfs, 0.5.1)
+AC_INIT(castfs, 0.6.2)
 AM_INIT_AUTOMAKE
 AC_PROG_CC
 
