@@ -25,32 +25,6 @@ static int cast_getattr(const char *path, struct stat *stbuf)
 	return 0;
 }
 
-/* shouldn't this be nearly identical to above?  This won't stage, will it? */
-static int cast_fgetattr(const char *path, struct stat *stbuf,
-			 struct fuse_file_info *fi)
-{
-//fprintf(stderr, "cast_fgetattr: %s\n", path);
-	int res;
-	cast_log(CAST_DBG_SYS, "fgetattr %s\n", path);
-#if 1	// 0=old behavior; 1=new behavior
-	char *cpath = strdup(path);
-	cast_paths_ptr paths = castHashGetValueOf(cpath);
-
-	cast_log(CAST_DBG_SYS, "\tfgetattr %s\n", cpath);
-	cast_paths_log(paths);
-	if (paths && paths->is_staged)
-		res = lstat(paths->stage_path, stbuf);
-		// Not sure this is correct, but I think it is! --D.E.
-	else
-		//res = fstat(cpath, stbuf);
-#endif
-		res = fstat(fi->fh, stbuf);
-	if (res == -1)
-		return -errno;
-
-	return 0;
-}
-
 static int cast_access(const char *path, int mask)
 {
 //fprintf(stderr, "cast_access: %s\n", path);
@@ -688,7 +662,6 @@ static int cast_releasedir(const char *path, struct fuse_file_info *fi)
 
 static struct fuse_operations cast_oper = {
 	.getattr = cast_getattr,
-	.fgetattr = cast_fgetattr,
 	.access = cast_access,
 	.readlink = cast_readlink,
 	.opendir = cast_opendir,
