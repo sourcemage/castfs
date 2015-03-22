@@ -698,7 +698,8 @@ static struct fuse_operations cast_oper = {
 int main(int argc, char *argv[], char *env[])
 {
 	int i, dbgdef;
-	char *new_argv[argc], *tmp_argv, *logptr, *dbgptr, deflog[]="/tmp/castfs.log";
+	char *new_argv[argc + 1], *tmp_argv, *logptr, *dbgptr, deflog[]="/tmp/castfs.log";
+	char *singlethreaded = "-s";
 	int new_argc = 0;
 
 	/* get environmental vars and open fd's for log file */
@@ -782,6 +783,9 @@ int main(int argc, char *argv[], char *env[])
 		usage();
 		exit(-1);
 	}
+
+	// enforce single-threaded mode for fuse to avoid multijob install races
+	new_argv[new_argc] = singlethreaded;
 
 	cast_log(CAST_DBG_MAIN, "mount path %s\n", mount_path);
 	cast_log(CAST_DBG_MAIN, "stage path %s\n", stage_path);
