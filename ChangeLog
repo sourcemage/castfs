@@ -1,6 +1,7 @@
 2015-03-22 Vlad Glagolev <stealth@sourcemage.org>
 	* configure.in: -> configure.ac; updated spell version to 0.6.2
 	* src/castfs.c: use dynamic version value
+	* AUTHORS: updated
 
 2015-03-21 Vlad Glagolev <stealth@sourcemage.org>
 	* src/castfs.c: handle mkfifo/mknod return value; removed fgetattr call
