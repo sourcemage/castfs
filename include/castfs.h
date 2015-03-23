@@ -3,6 +3,8 @@
 
 #define _GNU_SOURCE
 
+#include "config.h"
+
 #include <fuse.h>
 #include <stdio.h>
 #include <string.h>
@@ -17,8 +19,6 @@
 #ifdef HAVE_SETXATTR
 #include <sys/xattr.h>
 #endif
-
-#include "config.h"
 
 #define CAST_DBG_MAIN (1<<0)
 #define CAST_DBG_SYS  (1<<1)
