@@ -786,6 +786,7 @@ int main(int argc, char *argv[], char *env[])
 
 	// enforce single-threaded mode for fuse to avoid multijob install races
 	new_argv[new_argc] = singlethreaded;
+	new_argc++;
 
 	cast_log(CAST_DBG_MAIN, "mount path %s\n", mount_path);
 	cast_log(CAST_DBG_MAIN, "stage path %s\n", stage_path);
