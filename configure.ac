@@ -30,12 +30,24 @@ AC_ARG_ENABLE(static-fuse,
 AC_HELP_STRING([--enable-static-fuse], [Enable building castfs against fuse statically]),
 [static_fuse=${enableval}], [static_fuse=no])
 
-if test "x$static_fuse" = "xyes"
-then
+if test "x$static_fuse" = "xyes"; then
   LIBS=`pkg-config --libs fuse | sed 's/-lfuse/$(FUSE_PREFIX)\/lib\/libfuse.a -lrt/'`
 fi
 
-AC_CHECK_FUNCS([setxattr])
+AC_ARG_ENABLE(xattr,
+   AC_HELP_STRING([--enable-xattr], [Enable extended attributes support]),
+   [
+       if test x$enableval = xyes; then
+          support_xattr=yes
+       elif test x$enableval = xno; then
+          support_xattr=no
+       fi
+   ]
+)
+
+if test "x$support_xattr" = "xyes"; then
+  AC_CHECK_FUNCS([setxattr],, AC_MSG_ERROR([[XATTRs enabled, but support not detected]]))
+fi
 
 AC_CONFIG_FILES([
 Makefile
