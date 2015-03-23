@@ -6,7 +6,7 @@
 	* src/castfs.c: use dynamic version value; force single-threaded mode
 	  to prevent race conditions in multijob (make -j N) installs (fuse is
 	  thread-safe, but we need more investingation on how make and castfs
-	  are for different filesystems
+	  are for different filesystems)
 	* AUTHORS: updated
 
 2015-03-21 Vlad Glagolev <stealth@sourcemage.org>
