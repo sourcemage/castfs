@@ -18,6 +18,8 @@
 #include <sys/xattr.h>
 #endif
 
+#include "config.h"
+
 #define CAST_DBG_MAIN (1<<0)
 #define CAST_DBG_SYS  (1<<1)
 #define CAST_DBG_UTIL (1<<2)

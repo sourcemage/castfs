@@ -1,5 +1,8 @@
 2015-03-23 Vlad Glagolev <stealth@sourcemage.org>
-	* src/castfs.c: added forgotten new argc increment
+	* src/castfs.c: added forgotten new argc increment; use VERSION instead
+	  of PACKAGE_VERSION
+	* include/castfs.h: include config.h
+	* configure.ac: moved config.h to AM_CONFIG_HEADER
 
 2015-03-22 Vlad Glagolev <stealth@sourcemage.org>
 	* configure.in: -> configure.ac; updated spell version to 0.6.2

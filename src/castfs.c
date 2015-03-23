@@ -712,7 +712,7 @@ int main(int argc, char *argv[], char *env[])
 	}
 
 	if(strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0) {
-		fprintf(stdout, "castfs: version %s\n", PACKAGE_VERSION);
+		fprintf(stdout, "castfs: version %s\n", VERSION);
 		exit(0);
 	} else if(strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
 		usage();

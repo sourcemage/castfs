@@ -4,6 +4,8 @@ AC_PROG_CC
 
 AM_MAINTAINER_MODE
 
+AM_CONFIG_HEADER(include/config.h)
+
 AC_ARG_ENABLE(debug,
 AC_HELP_STRING([--enable-debug],[Enable debug flags]),
 	[ CFLAGS="$CFLAGS -Wall -g" ],
@@ -41,6 +43,5 @@ include/Makefile
 src/Makefile
 test/Makefile
 debian/Makefile
-include/config.h
 ])
 AC_OUTPUT
