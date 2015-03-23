@@ -6,6 +6,7 @@
 5. configure.in: ryuji had problems with FUSE_PREFIX being bad for static
 	version.  I personally feel the static option should be removed, but
 	would like input on this.	-D.E.Edmons
+6. Fix bug #14479 (old bugzilla @ bugs.sourcemage.org) related to xattr support
 
 Design changes:
 	1. Command line options and environment variables should have
