@@ -23,15 +23,15 @@ AC_CHECK_HEADERS(fuse.h,, AC_MSG_ERROR([fuse 2.4 or newer is required to build c
 
 AC_CHECK_LIB(fuse, fuse_main,, AC_MSG_ERROR([fuse 2.4 or newer is required to build castfs]))
 
-FUSE_PREFIX=`pkg-config --variable=exec_prefix fuse `
-AC_SUBST(FUSE_PREFIX,PREFIX,DATAROOTDIR)
+FUSE_PREFIX=`pkg-config --variable=exec_prefix fuse`
+AC_SUBST(FUSE_PREFIX)
 
 AC_ARG_ENABLE(static-fuse,
 AC_HELP_STRING([--enable-static-fuse], [Enable building castfs against fuse statically]),
 [static_fuse=${enableval}], [static_fuse=no])
 
 if test "x$static_fuse" = "xyes"; then
-  LIBS=`pkg-config --libs fuse | sed 's/-lfuse/$(FUSE_PREFIX)\/lib\/libfuse.a -lrt/'`
+  LIBS=`pkg-config --libs --static fuse | sed "s:-lfuse:${FUSE_PREFIX}\/lib\/libfuse.a -lrt:"`
 fi
 
 AC_ARG_ENABLE(xattr,

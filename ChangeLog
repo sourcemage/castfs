@@ -1,3 +1,8 @@
+2015-03-26 Vlad Glagolev <stealth@sourcemage.org>
+	* configure.ac: corrected FUSE_PREFIX substring; use proper flags for
+	  static build (take them via pkg-config)
+	* TODO: removed irrelevant bug from the list
+
 2015-03-23 Vlad Glagolev <stealth@sourcemage.org>
 	* src/castfs.c: added forgotten new argc increment; use VERSION instead
 	  of PACKAGE_VERSION
