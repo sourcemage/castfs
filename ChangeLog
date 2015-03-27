@@ -8,6 +8,8 @@
 	  manual page
 	* Makefile.am: made building of documentation optional
 	* configure.ac: added flags to enable/disable documentation
+	* NEWS: added note about manual page
+	* README: add myself as a maintainer
 
 2015-03-26 Vlad Glagolev <stealth@sourcemage.org>
 	* configure.ac: corrected FUSE_PREFIX substring; use proper flags for

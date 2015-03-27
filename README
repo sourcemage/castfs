@@ -70,9 +70,8 @@ mount it via the mount command:
     or
     # mount -t fuse -o stage=/mnt/cast-fs-stage castfs /mnt/cast-fs
 
--- Bugs Problems --
+-- Bugs/Problems --
 
 You can contact the maintainers:
 
-David Brown <dmlb2000@gmail.com>
-
+Vlad Glagolev <stealth@sourcemage.org>
