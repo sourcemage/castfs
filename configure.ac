@@ -49,8 +49,23 @@ if test "x$support_xattr" = "xyes"; then
   AC_CHECK_FUNCS([setxattr],, AC_MSG_ERROR([[XATTRs enabled, but support not detected]]))
 fi
 
+AC_ARG_ENABLE(documentation,
+AC_HELP_STRING([--disable-documentation], [Disable build of the manual page]),
+[build_docs=${enableval}], [build_docs=yes])
+
+if test "x$build_docs" = "xyes"; then
+  AC_PATH_PROG(POD2MAN, pod2man, no)
+
+  if test "x$POD2MAN" = "xno"; then
+    AC_MSG_ERROR([[Unable to build the manual page, Perl/pod2man not found]])
+  fi
+fi
+
+AM_CONDITIONAL(BUILD_DOCS, test "x$build_docs" = "xyes")
+
 AC_CONFIG_FILES([
 Makefile
+doc/Makefile
 include/Makefile
 src/Makefile
 test/Makefile

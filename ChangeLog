@@ -6,6 +6,8 @@
 	* doc/Makefile.am: implemented build for 'doc'
 	* doc/castfs.pod: added POD (Plain Old Documentation) version for castfs
 	  manual page
+	* Makefile.am: made building of documentation optional
+	* configure.ac: added flags to enable/disable documentation
 
 2015-03-26 Vlad Glagolev <stealth@sourcemage.org>
 	* configure.ac: corrected FUSE_PREFIX substring; use proper flags for
