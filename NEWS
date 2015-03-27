@@ -1,4 +1,4 @@
-0.6.2 (2015-03-__)
+0.6.2 (2015-03-27)
 - disabled multi-threaded mode for fuse to fix rare race condition cases
 - made xattr support configurable (WARNING: xattr support is still broken)
 - removed fgetattr call
