@@ -2,6 +2,7 @@
 	* doc/castfs-call-for-testers.html, doc/castfs-from-David-Brown.eml,
 	  doc/castfs.tex: moved outdated files to doc/old
 	* doc/castfs.8, doc/castfs.info: removed outdated manual and info pages
+	* doc/Makefile: removed useless makefile
 
 2015-03-26 Vlad Glagolev <stealth@sourcemage.org>
 	* configure.ac: corrected FUSE_PREFIX substring; use proper flags for
