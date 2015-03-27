@@ -1,0 +1,75 @@
+=encoding utf8
+
+=head1 NAME
+
+castfs - FUSE filesystem driver useful for staging package installations.
+
+=head1 SYNOPSIS
+
+castfs <I<mount-point>> -o stage=<I<dir>> [I<OPTION>]...
+
+=head1 DESCRIPTION
+
+I<castfs> is a FUSE driver that stages a I<spell> for installation. FUSE support must be built into the kernel and the fuse module inserted (C<modprobe fuse>).
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-o stage=I<dir>>
+
+Include the non-optional staging directory
+
+=item B<-o ignore=I<path>>
+
+Add optional path to ignore list. Can be specified multiple times.
+
+=item B<-o debug>
+
+Turn on debug mode (forces running in foreground)
+
+=item B<-h>, B<--help>
+
+Display this help
+
+=item B<-v>, B<--version>
+
+Display version information
+
+=back
+
+=head1 ENVIRONMENT
+
+=over 4
+
+=item B<CASTFS_LOGFILE>
+
+User selected log file
+
+=item B<CASTFS_DBGLVL>
+
+User specified debug level
+
+=back
+
+=head1 EXAMPLES
+
+# castfs $HOME/mnt -o stage=$HOME/stage
+
+    Mounts / on $HOME/mnt and duplicates all changes in $HOME/stage.
+
+# CASTFS_LOGFILE=$HOME/tmp/logfile && CASTFS_DBGLVL=5 && castfs \
+  $HOME/mnt -o stage=$HOME/stage
+
+    Mounts / on $HOME/mnt and duplicates all changes in $HOME/stage.
+    Logging file set to $HOME/tmp/logfile. Debug level=5.
+
+=head1 AUTHOR
+
+Original version by David Brown.
+
+Maintained by the Source Mage GNU/Linux Team (http://www.sourcemage.org)
+
+=head1 SEE ALSO
+
+fusermount(1), chroot(1), mount(8), cast(8)
