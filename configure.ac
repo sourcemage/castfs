@@ -1,4 +1,4 @@
-AC_INIT(castfs, 0.6.2)
+AC_INIT(castfs, git)
 AM_INIT_AUTOMAKE
 AC_PROG_CC
 
